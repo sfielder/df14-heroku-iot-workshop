@@ -76,8 +76,9 @@
 		setInterval(function(){updateChart()}, updateInterval);
 		
 		
-		
-	 var socket = io.connect('http://localhost:5000'); 
+	var host = process.env.HOST_URL || 'http://localhost:5000';	
+	 
+	 var socket = io.connect(host); 
 	
 		socket.on('connect', function(){
 			
