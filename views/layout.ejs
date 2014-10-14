@@ -76,9 +76,8 @@
 		setInterval(function(){updateChart()}, updateInterval);
 		
 		
-	var host = process.env.HOST_URL || 'http://localhost:5000';	
-	 
-	 var socket = io.connect(host); 
+		
+	 var socket = io.connect('http://localhost:5000'); 
 	
 		socket.on('connect', function(){
 			
@@ -86,7 +85,6 @@
 			
 			socket.request('/stream', {}, function(streams){console.log(streams);});
 		});
- 		
  		socket.on('stream', function(data) {
 			    console.log(JSON.stringify(data));
 			    var d = new Date(data["data"]["createdAt"]);
