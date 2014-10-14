@@ -20,6 +20,24 @@ module.exports = {
 			type: 'float',
 			required: true
 		}
+  },
+  
+  //TREASURE DATA INTEGRATION VIA STDOUT
+  afterCreate: function(newlyInsertedRecord, next){
+  	console.log("TREASURE DATA SEND");
+  	console.log('@[df14-heroku-iot-workshop.streams] '+ JSON.stringify(newlyInsertedRecord));
+  	console.log('@['+newlyInsertedRecord.user+'.streams] '+ JSON.stringify(newlyInsertedRecord));
+  	next();
+  },
+  afterUpdate: function(updatedRecord, next){
+    console.log("TREASURE DATA SEND");
+  	console.log('@[df14-heroku-iot-workshop.streams] '+ JSON.stringify(newlyInsertedRecord));
+  	console.log('@['+updatedRecord.user+'.streams] '+ JSON.stringify(updatedRecord));
+  	next();
   }
+  
+  
+  
+  
 };
 
