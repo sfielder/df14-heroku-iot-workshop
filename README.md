@@ -1,6 +1,5 @@
-# heroku_iot_workshop
+# DF14 Heroku IoT Hands-On Workshop
 
-a [Sails](http://sailsjs.org) application
 
 
 MBED Project Library
