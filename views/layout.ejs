@@ -31,6 +31,81 @@
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
+    
+    
+    <script type="text/javascript">
+	window.onload = function () {
+
+		var dps = []; // dataPoints
+
+		var chart = new CanvasJS.Chart("chartContainer",{
+			title :{
+				text: "Live K64F Temperature Data"
+			},			
+			data: [{
+				type: "line",
+				dataPoints: dps 
+			}]
+		});
+		
+		chart.render();
+		
+		var xVal = dps.length + 1;
+		var yVal = 100;	
+		var updateInterval = 15;
+		var dataLength = 1000; // number of dataPoints visible at any point
+
+		updateChart = function () {
+      	
+      	
+	      	if (dps.length >  10 )
+	      	{
+	      		dps.shift();				
+	      	}
+	
+	      	chart.render();		
+	
+		// update chart after specified time. 
+	
+		};
+
+		// generates first set of dataPoints
+		updateChart(dataLength); 
+
+		// update chart after specified time. 
+		setInterval(function(){updateChart()}, updateInterval);
+		
+		
+		
+	 var socket = io.connect('http://localhost:5000'); 
+	
+		socket.on('connect', function(){
+			
+			console.log('connected to socket');
+			
+			socket.request('/stream', {}, function(streams){console.log(streams);});
+		});
+ 		
+ 		socket.on('stream', function(data) {
+			    console.log(JSON.stringify(data));
+			    var d = new Date(data["data"]["createdAt"]);
+			    var v = (data["data"]["value"] * 9) / 5 + 32;
+			    dps.push({x: d, y:v});
+			    console.log(dps);
+			    
+			});	 
+
+	}
+	</script>
+	
+    
+    
+    
+    
+    
+    
+    
+    
   </head>
 
   <body>
@@ -89,6 +164,8 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/canvasjs.js"></script>
+    <script src="/js/dependencies/excanvas.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
