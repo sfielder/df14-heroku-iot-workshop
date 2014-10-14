@@ -1,4 +1,4 @@
-# DF14 Heroku IoT Hands-On Workshop
+# DF14 Heroku IoT Hands-On Workshop 
 
 
 
