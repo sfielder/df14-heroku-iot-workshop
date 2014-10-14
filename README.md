@@ -15,7 +15,8 @@
 
 ## MBED Project Library
 
-Create an mbed.org account & navigate to the compiler
+* Create an http://developer.mbed.org/ account 
+* navigate to the compiler
 
 http://developer.mbed.org/users/ansond/code/df-2014-scott-heroku-k64f/
 
