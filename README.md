@@ -7,10 +7,10 @@
  * Create heroku account and login
  * Launch Heroku button from public github repo
  * Manually create heroku config variables
- * REDIS_HOST
- * REDIS_PORT
- * REDIS_DB
- * REDIS_PASSWORD
+ ** REDIS_HOST
+ ** REDIS_PORT
+ ** REDIS_DB
+ ** REDIS_PASSWORD
 
 
 ## MBED Project Library
