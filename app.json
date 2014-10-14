@@ -1,0 +1,13 @@
+{
+  "name": "DF14 Heroku IoT Workshop",
+  "description": "Heroku RESTful Webservice API",
+  "website": "https://github.com/sfielder/df14-heroku-iot-workshop",
+  "repository": "https://github.com/sfielder/df14-heroku-iot-workshop",
+  "logo": "http://appirio.wpengine.netdna-cdn.com/wp-content/uploads/2014/05/heroku-Logo-1.jpg",
+  "scripts": {},
+  "env": {
+    "RAILS_ENV": "production"
+  },
+  "addons": ["rediscloud", "mongohq", "treasure-data", "papertrail"]
+
+}
