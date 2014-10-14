@@ -77,7 +77,7 @@
 		
 		
 		
-	 var socket = io.connect(<%= sails.config.myconf.name %>); 
+	 var socket = io.connect("<%= sails.config.myconfig.HOST_URL %>"); 
 	
 		socket.on('connect', function(){
 			

@@ -1,4 +1,4 @@
 module.exports.myconfig = {
-    name: process.env.HOST_URL || 'http://localhost:5000',
+    HOST_URL: process.env.HOST_URL || 'http://localhost:5000',
     
 };
